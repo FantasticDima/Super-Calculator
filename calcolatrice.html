@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+</head>
+<body>
+<div id="app" style="width:236px">
+  <div id="title" style="font-size:20px">Super Calcolatrice</div>
+  <div id="display" style="height:18px"></div>
+  <input type="text" id="i" style="width:100%;box-sizing:border-box" autofocus>
+  <div id="buttons" style="display:flex;gap:8px;margin-top:8px">
+    <button style="width:40px" onclick="op('+')">+</button>
+    <button style="width:40px" onclick="op('-')">-</button>
+    <button style="width:40px" onclick="op('*')">*</button>
+    <button style="width:40px" onclick="op('/')">/</button>
+    <button style="width:40px" onclick="calc()">=</button>
+  </div>
+</div>
+<script>
+let total = 0, pending = null;
+
+function fold() {
+  const n = parseFloat(i.value);
+  if (isNaN(n)) return;
+  if (pending === null) total = n;
+  else if (pending === '+') total += n;
+  else if (pending === '-') total -= n;
+  else if (pending === '*') total *= n;
+  else if (pending === '/') total /= n;
+}
+
+function op(x) {
+  fold();
+  pending = x;
+  i.value = '';
+  display.textContent = total + ' ' + x;
+}
+
+function calc() {
+  fold();
+  pending = null;
+  i.value = total;
+  display.textContent = '= ' + total;
+}
+</script>
+</body>
+</html>
