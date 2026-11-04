@@ -16,6 +16,20 @@
     <button style="width:40px" onclick="op('/')">/</button>
     <button style="width:40px" onclick="calc()">=</button>
   </div>
+  <div id="nums" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+    <button style="width:40px" onclick="num('7')">7</button>
+    <button style="width:40px" onclick="num('8')">8</button>
+    <button style="width:40px" onclick="num('9')">9</button>
+    <button style="width:40px" onclick="num('4')">4</button>
+    <button style="width:40px" onclick="num('5')">5</button>
+    <button style="width:40px" onclick="num('6')">6</button>
+    <button style="width:40px" onclick="num('1')">1</button>
+    <button style="width:40px" onclick="num('2')">2</button>
+    <button style="width:40px" onclick="num('3')">3</button>
+    <button style="width:40px" onclick="num('0')">0</button>
+    <button style="width:40px" onclick="num('.')">.</button>
+    <button style="width:40px" onclick="clr()">C</button>
+  </div>
 </div>
 <script>
 let total = 0, pending = null;
@@ -42,6 +56,17 @@ function calc() {
   pending = null;
   i.value = total;
   display.textContent = '= ' + total;
+}
+
+function num(n) {
+  i.value += n;
+}
+
+function clr() {
+  i.value = '';
+  total = 0;
+  pending = null;
+  display.textContent = '';
 }
 </script>
 </body>
