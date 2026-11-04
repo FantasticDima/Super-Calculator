@@ -11,6 +11,7 @@ operator**.
 
 Because it folds sequentially, evaluation is left-to-right:
 `2 + 3 * 4 = 20`, not `14`.
+
 Use the on-screen buttons to punch in numbers without needing a keyboard!
 
 ## License
